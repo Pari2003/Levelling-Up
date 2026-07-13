@@ -1,4 +1,4 @@
-# 🏢 Company-Specific Quick Briefs
+# Company-Specific Quick Briefs
 
 > For each company: what they do, what the role likely involves, and how to prepare specifically.
 
@@ -15,10 +15,10 @@
 - Escalating complex issues to engineering
 
 **What to prepare:**
-- ✅ SQL (JOINs, subqueries, GROUP BY, window functions) — **your SQL guide covers this**
-- ✅ Debugging mindset — **your debugging practice covers this**
-- ✅ Basic database concepts (indexes, transactions, ACID properties)
-- ✅ Communication — explaining technical issues to customers
+- SQL (JOINs, subqueries, GROUP BY, window functions) — **your SQL guide covers this**
+- Debugging mindset — **your debugging practice covers this**
+- Basic database concepts (indexes, transactions, ACID properties)
+- Communication — explaining technical issues to customers
 
 **ACID Properties (they might ask):**
 - **Atomicity:** Transaction is all-or-nothing. If any part fails, everything rolls back.
@@ -39,10 +39,10 @@
 - Basic Apex/SOQL knowledge might help but not required for support
 
 **What to prepare:**
-- ✅ SQL (SOQL is similar to SQL but simpler)
-- ✅ API basics (Salesforce integrates with everything via REST APIs)
-- ✅ Debugging/troubleshooting mindset
-- ✅ Understanding of CRM concepts
+- SQL (SOQL is similar to SQL but simpler)
+- API basics (Salesforce integrates with everything via REST APIs)
+- Debugging/troubleshooting mindset
+- Understanding of CRM concepts
 
 **CRM Quick Glossary:**
 - **Lead:** A potential customer who hasn't been qualified yet
@@ -65,11 +65,11 @@
 - Open source contribution mindset
 
 **What to prepare:**
-- ✅ Linux commands — **your Linux guide covers this**
-- ✅ Docker/Podman — container basics
-- ✅ Git and open source workflows
-- ✅ Basic networking (ports, SSH, HTTP)
-- ✅ Passion for open source (have opinions about it)
+- Linux commands — **your Linux guide covers this**
+- Docker/Podman — container basics
+- Git and open source workflows
+- Basic networking (ports, SSH, HTTP)
+- Passion for open source (have opinions about it)
 
 **Red Hat values to emphasize:**
 - Open source philosophy — transparency, collaboration, meritocracy
@@ -89,11 +89,11 @@
 - This is more CODING-focused than the PSE role
 
 **What to prepare:**
-- ✅ Python (data structures, algorithms, API calls)
-- ✅ DSA fundamentals
-- ✅ SQL
-- ✅ Your IEEE paper connection (HUGE advantage — your paper is about the same problem)
-- ✅ Debugging — you've now practiced the config question format
+- Python (data structures, algorithms, API calls)
+- DSA fundamentals
+- SQL
+- Your IEEE paper connection (HUGE advantage — your paper is about the same problem)
+- Debugging — you've now practiced the config question format
 
 ---
 
@@ -108,11 +108,11 @@
 - DSA (they do traditional coding rounds)
 
 **What to prepare:**
-- ✅ DSA — arrays, strings, hashmaps, trees, linked lists, sorting, searching
-- ✅ OS concepts — processes, threads, memory, file systems
-- ✅ Linux — **your Linux guide covers this**
-- ⚠️ C/C++ basics if you know any (if not, focus on Python and mention willingness to learn)
-- ✅ Computer architecture basics — cache, registers, memory hierarchy
+- DSA — arrays, strings, hashmaps, trees, linked lists, sorting, searching
+- OS concepts — processes, threads, memory, file systems
+- Linux — **your Linux guide covers this**
+- ️ C/C++ basics if you know any (if not, focus on Python and mention willingness to learn)
+- Computer architecture basics — cache, registers, memory hierarchy
 
 ---
 
@@ -127,11 +127,11 @@
 - Model evaluation and deployment
 
 **What to prepare:**
-- ✅ ML fundamentals — supervised/unsupervised, overfitting, bias-variance, cross-validation
-- ✅ Python data science — pandas, numpy, scikit-learn
-- ✅ DSA (moderate level)
-- ✅ Your projects (especially RAG and Evaluation Dashboard)
-- ✅ Your paper (directly relevant — NLP + ML for ranking)
+- ML fundamentals — supervised/unsupervised, overfitting, bias-variance, cross-validation
+- Python data science — pandas, numpy, scikit-learn
+- DSA (moderate level)
+- Your projects (especially RAG and Evaluation Dashboard)
+- Your paper (directly relevant — NLP + ML for ranking)
 
 **ML Quick Reference:**
 - **Supervised:** Labeled data → model learns input→output mapping (classification, regression)

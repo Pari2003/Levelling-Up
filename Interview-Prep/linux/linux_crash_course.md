@@ -1,4 +1,4 @@
-# 🐧 Linux + Open Source Crash Course (For Red Hat / Qualcomm)
+# Linux + Open Source Crash Course (For Red Hat / Qualcomm)
 
 > Red Hat = Linux company. They'll test if you actually USE Linux. Qualcomm = embedded systems, also needs Linux/OS basics.
 
@@ -8,46 +8,46 @@
 
 ### File System Navigation
 ```bash
-pwd                     # Print current directory
-ls -la                  # List all files with details (-l=long, -a=hidden)
-cd /path/to/dir         # Change directory
-cd ~                    # Go to home directory
-cd ..                   # Go up one level
-mkdir -p dir1/dir2      # Create nested directories
-rm file.txt             # Delete file
-rm -rf directory/       # Delete directory recursively (DANGEROUS)
-cp source dest          # Copy
-mv source dest          # Move or rename
-find / -name "*.log"    # Find files by name
-which python            # Show path of a command
+pwd           # Print current directory
+ls -la         # List all files with details (-l=long, -a=hidden)
+cd /path/to/dir     # Change directory
+cd ~          # Go to home directory
+cd ..          # Go up one level
+mkdir -p dir1/dir2   # Create nested directories
+rm file.txt       # Delete file
+rm -rf directory/    # Delete directory recursively (DANGEROUS)
+cp source dest     # Copy
+mv source dest     # Move or rename
+find / -name "*.log"  # Find files by name
+which python      # Show path of a command
 ```
 
 ### File Operations
 ```bash
-cat file.txt            # Print entire file
-head -n 20 file.txt     # First 20 lines
-tail -n 20 file.txt     # Last 20 lines
-tail -f app.log         # Follow log in real-time (VERY useful)
-grep "error" file.txt   # Search for "error" in file
-grep -r "TODO" ./src/   # Search recursively in directory
-grep -i "error" file    # Case-insensitive search
-wc -l file.txt          # Count lines
-sort file.txt           # Sort lines
-uniq                    # Remove adjacent duplicates (use with sort)
-diff file1 file2        # Compare two files
+cat file.txt      # Print entire file
+head -n 20 file.txt   # First 20 lines
+tail -n 20 file.txt   # Last 20 lines
+tail -f app.log     # Follow log in real-time (VERY useful)
+grep "error" file.txt  # Search for "error" in file
+grep -r "TODO" ./src/  # Search recursively in directory
+grep -i "error" file  # Case-insensitive search
+wc -l file.txt     # Count lines
+sort file.txt      # Sort lines
+uniq          # Remove adjacent duplicates (use with sort)
+diff file1 file2    # Compare two files
 ```
 
 ### Piping & Redirection (Important!)
 ```bash
 # Pipe: Output of command1 → input of command2
-cat server.log | grep "ERROR" | wc -l       # Count error lines
-ps aux | grep python                         # Find python processes
+cat server.log | grep "ERROR" | wc -l    # Count error lines
+ps aux | grep python             # Find python processes
 
 # Redirect output
-echo "hello" > file.txt    # Write (overwrite)
-echo "world" >> file.txt   # Append
-command 2> errors.log      # Redirect stderr
-command > out.log 2>&1     # Redirect both stdout and stderr
+echo "hello" > file.txt  # Write (overwrite)
+echo "world" >> file.txt  # Append
+command 2> errors.log   # Redirect stderr
+command > out.log 2>&1   # Redirect both stdout and stderr
 ```
 
 ### Permissions
@@ -55,11 +55,11 @@ command > out.log 2>&1     # Redirect both stdout and stderr
 ls -la
 # -rwxr-xr-- 1 user group 1234 Jul 13 file.txt
 # |||
-# user/group/others  (r=read, w=write, x=execute)
+# user/group/others (r=read, w=write, x=execute)
 
-chmod 755 script.sh     # rwxr-xr-x (owner: all, others: read+execute)
-chmod +x script.sh      # Add execute permission
-chown user:group file   # Change ownership
+chmod 755 script.sh   # rwxr-xr-x (owner: all, others: read+execute)
+chmod +x script.sh   # Add execute permission
+chown user:group file  # Change ownership
 ```
 
 **Permission numbers:** r=4, w=2, x=1. Add them up.
@@ -69,39 +69,39 @@ chown user:group file   # Change ownership
 
 ### Process Management
 ```bash
-ps aux                  # List all processes
-ps aux | grep nginx     # Find specific process
-top / htop              # Live process monitor
-kill PID                # Send SIGTERM (graceful stop)
-kill -9 PID             # Send SIGKILL (force kill)
-bg                      # Send job to background
-fg                      # Bring job to foreground
-nohup command &         # Run command immune to hangups
+ps aux         # List all processes
+ps aux | grep nginx   # Find specific process
+top / htop       # Live process monitor
+kill PID        # Send SIGTERM (graceful stop)
+kill -9 PID       # Send SIGKILL (force kill)
+bg           # Send job to background
+fg           # Bring job to foreground
+nohup command &     # Run command immune to hangups
 ```
 
 ### Networking
 ```bash
-ping google.com         # Test connectivity
-curl https://api.com    # Make HTTP request
+ping google.com     # Test connectivity
+curl https://api.com  # Make HTTP request
 curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' https://api.com
-wget https://url/file   # Download file
-netstat -tlnp           # Show listening ports
-ss -tlnp                # Modern netstat
-ip addr                 # Show IP addresses
+wget https://url/file  # Download file
+netstat -tlnp      # Show listening ports
+ss -tlnp        # Modern netstat
+ip addr         # Show IP addresses
 ```
 
 ### Package Management
 ```bash
 # Debian/Ubuntu (apt)
-sudo apt update              # Refresh package list
-sudo apt install nginx       # Install
-sudo apt remove nginx        # Uninstall
+sudo apt update       # Refresh package list
+sudo apt install nginx    # Install
+sudo apt remove nginx    # Uninstall
 
 # Red Hat/CentOS (dnf/yum)
-sudo dnf install httpd       # Install
-sudo dnf update              # Update all
-sudo dnf search python       # Search
-rpm -qa                      # List all installed packages
+sudo dnf install httpd    # Install
+sudo dnf update       # Update all
+sudo dnf search python    # Search
+rpm -qa           # List all installed packages
 
 # Python
 pip install package
@@ -111,13 +111,13 @@ pip install -r requirements.txt
 
 ### systemd (Service Management)
 ```bash
-sudo systemctl start nginx     # Start service
-sudo systemctl stop nginx      # Stop service
-sudo systemctl restart nginx   # Restart
-sudo systemctl status nginx    # Check status
-sudo systemctl enable nginx    # Start on boot
-sudo systemctl disable nginx   # Don't start on boot
-journalctl -u nginx -f         # View service logs
+sudo systemctl start nginx   # Start service
+sudo systemctl stop nginx   # Stop service
+sudo systemctl restart nginx  # Restart
+sudo systemctl status nginx  # Check status
+sudo systemctl enable nginx  # Start on boot
+sudo systemctl disable nginx  # Don't start on boot
+journalctl -u nginx -f     # View service logs
 ```
 
 ---
@@ -128,14 +128,14 @@ journalctl -u nginx -f         # View service logs
 
 ```bash
 # Build an image
-docker build -t myapp .          # or: podman build -t myapp .
+docker build -t myapp .     # or: podman build -t myapp .
 
 # Run a container
-docker run -d -p 8080:80 myapp   # -d=detached, -p=port mapping
+docker run -d -p 8080:80 myapp  # -d=detached, -p=port mapping
 
 # List containers
-docker ps                         # Running
-docker ps -a                      # All (including stopped)
+docker ps             # Running
+docker ps -a           # All (including stopped)
 
 # Logs
 docker logs container_id
@@ -145,20 +145,20 @@ docker stop container_id
 docker rm container_id
 
 # Docker Compose
-docker-compose up -d              # Start all services
-docker-compose down               # Stop all services
-docker-compose logs -f             # Follow logs
+docker-compose up -d       # Start all services
+docker-compose down        # Stop all services
+docker-compose logs -f       # Follow logs
 ```
 
 ### Dockerfile Basics
 ```dockerfile
-FROM python:3.11-slim       # Base image
-WORKDIR /app                # Set working directory
-COPY requirements.txt .     # Copy dependencies file
-RUN pip install -r requirements.txt  # Install deps
-COPY . .                    # Copy app code
-EXPOSE 8000                 # Document the port
-CMD ["python", "main.py"]   # Default command
+FROM python:3.11-slim    # Base image
+WORKDIR /app        # Set working directory
+COPY requirements.txt .   # Copy dependencies file
+RUN pip install -r requirements.txt # Install deps
+COPY . .          # Copy app code
+EXPOSE 8000         # Document the port
+CMD ["python", "main.py"]  # Default command
 ```
 
 ---
@@ -166,21 +166,21 @@ CMD ["python", "main.py"]   # Default command
 ## Git (Version Control)
 
 ```bash
-git init                        # Initialize repo
-git clone url                   # Clone repo
-git status                      # See changes
-git add .                       # Stage all changes
-git commit -m "message"         # Commit
-git push origin main            # Push to remote
-git pull                        # Pull latest
-git branch feature-x            # Create branch
-git checkout feature-x          # Switch to branch
-git checkout -b feature-x       # Create + switch
-git merge feature-x             # Merge branch into current
-git log --oneline -10           # Last 10 commits (short)
-git diff                        # See unstaged changes
-git stash                       # Temporarily save changes
-git stash pop                   # Restore stashed changes
+git init            # Initialize repo
+git clone url          # Clone repo
+git status           # See changes
+git add .            # Stage all changes
+git commit -m "message"     # Commit
+git push origin main      # Push to remote
+git pull            # Pull latest
+git branch feature-x      # Create branch
+git checkout feature-x     # Switch to branch
+git checkout -b feature-x    # Create + switch
+git merge feature-x       # Merge branch into current
+git log --oneline -10      # Last 10 commits (short)
+git diff            # See unstaged changes
+git stash            # Temporarily save changes
+git stash pop          # Restore stashed changes
 ```
 
 ---
@@ -231,16 +231,16 @@ Software whose source code is publicly available. Anyone can view, use, modify, 
 
 ### File System Hierarchy (Linux)
 ```
-/          Root
-/home      User home directories
-/etc       Configuration files
-/var       Variable data (logs, caches)
-/tmp       Temporary files
-/usr       User programs and libraries
-/bin       Essential binaries (ls, cp, cat)
-/sbin      System binaries (systemctl, iptables)
-/dev       Device files
-/proc      Process information (virtual filesystem)
+/     Root
+/home   User home directories
+/etc    Configuration files
+/var    Variable data (logs, caches)
+/tmp    Temporary files
+/usr    User programs and libraries
+/bin    Essential binaries (ls, cp, cat)
+/sbin   System binaries (systemctl, iptables)
+/dev    Device files
+/proc   Process information (virtual filesystem)
 ```
 
 ---

@@ -1,4 +1,4 @@
-# 🎤 Behavioral Prep — STAR Stories + HR Questions
+# Behavioral Prep — STAR Stories + HR Questions
 
 > Works for ANY company. Three bulletproof stories you can adapt to any question.
 
@@ -123,15 +123,15 @@ Pick 2-3:
 
 ## Don'ts and Do's
 
-❌ Say "we" — say **"I"**
-❌ Rate yourself 5
-❌ Say "I don't know" — say "I haven't worked with that yet, but here's how I'd learn"
-❌ Ramble — answer, then STOP
-❌ Badmouth previous experiences
-❌ Be vague — use specific numbers
+ Say "we" — say **"I"**
+ Rate yourself 5
+ Say "I don't know" — say "I haven't worked with that yet, but here's how I'd learn"
+ Ramble — answer, then STOP
+ Badmouth previous experiences
+ Be vague — use specific numbers
 
-✅ Use the STAR structure for every behavioral answer
-✅ Connect every answer to the specific role
-✅ Show enthusiasm for learning
-✅ Pause before answering — it's OK to think
-✅ Be honest about gaps + show eagerness
+ Use the STAR structure for every behavioral answer
+ Connect every answer to the specific role
+ Show enthusiasm for learning
+ Pause before answering — it's OK to think
+ Be honest about gaps + show eagerness

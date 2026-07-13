@@ -1,4 +1,4 @@
-# 🛡️ Project Deep-Dive — Understand Your Own Code
+# ️ Project Deep-Dive — Understand Your Own Code
 
 > The goal is NOT to memorize scripts. It's to understand each project well enough that you can explain it naturally, like you're teaching a friend.
 
@@ -23,7 +23,7 @@ Something generates output → Something checks it → If bad, fix and retry
 
 ---
 
-## Project 1: Agentic RAG with Self-Correction ⭐
+## Project 1: Agentic RAG with Self-Correction 
 
 ### What it does (explain like teaching a friend):
 "You upload PDF research papers. You ask a question. Instead of just throwing the question at an LLM and hoping for the best, the system:
@@ -110,9 +110,9 @@ It generates a complete Docker development environment: Dockerfile, docker-compo
 ### The flow:
 ```
 Your prompt → Generator Agent creates structured config (JSON)
-           → Critic Agent runs docker-compose up in sandbox
-           → If crash → reads docker logs → feeds back to Generator → retry (max 3x)
-           → If success → writes files to disk
+      → Critic Agent runs docker-compose up in sandbox
+      → If crash → reads docker logs → feeds back to Generator → retry (max 3x)
+      → If success → writes files to disk
 ```
 
 ### Why Pydantic + Instructor?

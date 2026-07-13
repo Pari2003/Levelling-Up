@@ -1,20 +1,20 @@
-# 📄 YOUR SECRET WEAPON: IEEE Paper Defense Guide
+# YOUR SECRET WEAPON: IEEE Paper Defense Guide
 
 > [!IMPORTANT]
-> **Your paper is about FAIR JOB MATCHING using AI. Eightfold is a FAIR JOB MATCHING AI COMPANY.**
-> This is not a coincidence you need to hide — this is a narrative you need to OWN. When they ask "Why Eightfold?" you say: *"I literally published a research paper on the exact problem Eightfold is solving."* That's a mic-drop moment.
+> **Your paper is about FAIR JOB MATCHING using AI. This is highly relevant to many enterprise AI companies.**
+> This is not a coincidence you need to hide — this is a narrative you need to OWN. When asked "Why our company?" (if they work in HR tech/AI), you can say: *"I literally published a research paper on the exact problem you are solving."*
 
 ---
 
 ## The Killer Connection
 
-| Your Paper | Eightfold's Product |
+| Your Paper | Enterprise AI Products |
 |:-----------|:-------------------|
 | Replaces keyword matching with Sentence-BERT semantic embeddings | Uses deep learning to match candidates based on skills, not keywords |
 | Fairness Layer to reduce bias against freshers | "Equal Opportunity Algorithms" to mitigate hiring bias |
-| Cold-start problem: freshers lack visibility | Eightfold solves exactly this — matching by potential, not history |
-| Exposure Disparity Index measurement | Eightfold tracks and reduces bias in talent acquisition |
-| Post-processing fairness that works with any relevance engine | Eightfold sits on TOP of any ATS as an intelligence layer |
+| Cold-start problem: freshers lack visibility | Enterprise AI solves exactly this — matching by potential, not history |
+| Exposure Disparity Index measurement | Enterprise platforms track and reduce bias in talent acquisition |
+| Post-processing fairness that works with any relevance engine | These platforms sit on TOP of any ATS as an intelligence layer |
 
 **When the interviewer realizes you've researched their core problem BEFORE even applying — that's the moment you stand out from every other fresher candidate.**
 
@@ -29,28 +29,28 @@
 
 ```
 Stage 1: SEMANTIC RELEVANCE ENGINE
-    ├── Sentence-BERT (all-MiniLM-L6-v2) → 384-dim dense vectors
-    ├── Cosine similarity between candidate and job embeddings
-    └── Multi-Factor Scoring: 5 weighted components
-         ├── Semantic Similarity (w=0.45) — cosine similarity
-         ├── Skill Coverage (w=0.25) — % of required skills matched
-         ├── Skill Rarity (w=0.12) — IDF-based rarity of matched skills
-         ├── Experience Score (w=0.10) — tenure indicator
-         └── Skill Depth (w=0.08) — breadth of domain knowledge
+  ├── Sentence-BERT (all-MiniLM-L6-v2) → 384-dim dense vectors
+  ├── Cosine similarity between candidate and job embeddings
+  └── Multi-Factor Scoring: 5 weighted components
+     ├── Semantic Similarity (w=0.45) — cosine similarity
+     ├── Skill Coverage (w=0.25) — % of required skills matched
+     ├── Skill Rarity (w=0.12) — IDF-based rarity of matched skills
+     ├── Experience Score (w=0.10) — tenure indicator
+     └── Skill Depth (w=0.08) — breadth of domain knowledge
 
 Stage 2: FAIRNESS POST-PROCESSING LAYER (decoupled from Stage 1)
-    ├── Step 1: Group-Wise Z-Score Normalization
-    │   → Candidates compared WITHIN their experience cohort
-    │   → Prevents tenure-based score inflation
-    │
-    ├── Step 2: UCB Exploration Bonus
-    │   → Cold-start mitigation from Multi-Armed Bandits
-    │   → Underexposed groups get a controlled visibility boost
-    │   → Bonus shrinks as group accumulates exposure
-    │
-    └── Step 3: MMR Diversity Reranking
-        → Penalizes repeated selection from the same group
-        → Ensures diverse top-K results
+  ├── Step 1: Group-Wise Z-Score Normalization
+  │  → Candidates compared WITHIN their experience cohort
+  │  → Prevents tenure-based score inflation
+  │
+  ├── Step 2: UCB Exploration Bonus
+  │  → Cold-start mitigation from Multi-Armed Bandits
+  │  → Underexposed groups get a controlled visibility boost
+  │  → Bonus shrinks as group accumulates exposure
+  │
+  └── Step 3: MMR Diversity Reranking
+    → Penalizes repeated selection from the same group
+    → Ensures diverse top-K results
 ```
 
 ---
@@ -60,7 +60,7 @@ Stage 2: FAIRNESS POST-PROCESSING LAYER (decoupled from Stage 1)
 ### Architecture & Design
 
 **Q: "Why did you decouple the relevance engine from the fairness layer?"**
-*"This is a deliberate design decision. By keeping them separate, you can swap out the relevance engine — say, replace Sentence-BERT with a different embedding model or even a proprietary one — without touching the fairness mechanisms. This is important for enterprise adoption because companies may already have their own matching algorithms but need a fairness layer on top. It's exactly the plug-and-play philosophy that products like Eightfold use — sitting on top of existing ATS systems."*
+*"This is a deliberate design decision. By keeping them separate, you can swap out the relevance engine — say, replace Sentence-BERT with a different embedding model or even a proprietary one — without touching the fairness mechanisms. This is important for enterprise adoption because companies may already have their own matching algorithms but need a fairness layer on top. It's exactly the plug-and-play philosophy that enterprise products use — sitting on top of existing ATS systems."*
 
 **Q: "Why Sentence-BERT specifically? Why all-MiniLM-L6-v2?"**
 *"Two reasons. First, Sentence-BERT produces sentence-level embeddings optimized for semantic similarity — unlike vanilla BERT which produces token-level embeddings you'd need to pool. Second, all-MiniLM-L6-v2 is a distilled model — it's only 80MB and produces 384-dimensional vectors, making it fast enough for real-time matching. It was the best trade-off between quality and speed on the MTEB benchmark at the time. In production, you could upgrade to a larger model for better accuracy."*
@@ -132,15 +132,15 @@ Stage 2: FAIRNESS POST-PROCESSING LAYER (decoupled from Stage 1)
 
 ---
 
-### Connection to Eightfold
+### Connection to Enterprise AI
 
 **Q: "How is this relevant to the PSE role?"**
 
 *"This paper is directly relevant in three ways:*
 
-*First, Eightfold's core product does exactly what my paper proposes — it replaces keyword matching with AI-based skill understanding. I've researched the technical foundations of this approach.*
+*First, many enterprise AI products do exactly what my paper proposes — it replaces keyword matching with AI-based skill understanding. I've researched the technical foundations of this approach.*
 
-*Second, Eightfold's 'Equal Opportunity Algorithms' are conceptually similar to our Fairness Layer — ensuring equitable exposure across candidate groups. I understand the math and trade-offs behind these systems.*
+*Second, Many 'Equal Opportunity Algorithms' in the industry are conceptually similar to our Fairness Layer — ensuring equitable exposure across candidate groups. I understand the math and trade-offs behind these systems.*
 
 *Third, as a PSE, I'd be helping customers configure and deploy these AI matching systems. Having researched the underlying algorithms means I can explain to customers WHY a certain candidate was surfaced, HOW the bias mitigation works, and WHAT trade-offs they're making — which builds customer trust."*
 
@@ -152,13 +152,13 @@ Stage 2: FAIRNESS POST-PROCESSING LAYER (decoupled from Stage 1)
 
 *I've also built several production-quality projects, including an agentic RAG pipeline with 3-layer hallucination detection, and had three internship experiences in ML and data analytics.*
 
-*What makes Eightfold special for me is that I literally researched the problem you're solving. My paper is about making AI-powered job matching fairer — and Eightfold is building that at enterprise scale. I want to be on the team that brings this technology to customers."*
+*What makes this industry special for me is that I literally researched the problem you're solving. My paper is about making AI-powered job matching fairer — and companies are building that at enterprise scale. I want to be on the team that brings this technology to customers."*
 
 ---
 
-## Updated "Why Eightfold?" (With Paper)
+## Updated "Why Us?" (For HR Tech / AI Companies)
 
-*"I published a research paper on exactly the problem Eightfold is solving — fair, skill-based job matching using AI instead of keyword matching. I know firsthand how broken the traditional ATS approach is — my research showed that conventional systems give freshers less than 10% of exposure in top results, even when they're qualified. Eightfold's approach of using AI for skills-based matching and bias mitigation is exactly what I believe in and have researched. I don't just want to use these ideas — I want to help enterprise customers deploy them successfully."*
+*"I published a research paper on exactly the problem you are solving — fair, skill-based job matching using AI instead of keyword matching. I know firsthand how broken the traditional ATS approach is — my research showed that conventional systems give freshers less than 10% of exposure in top results, even when they're qualified. The approach of using AI for skills-based matching and bias mitigation is exactly what I believe in and have researched. I don't just want to use these ideas — I want to help enterprise customers deploy them successfully."*
 
 ---
 

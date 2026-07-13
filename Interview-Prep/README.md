@@ -1,29 +1,29 @@
-# 🎯 Interview Prep Hub — Multi-Company Preparation
+# Interview Prep Hub — Multi-Company Preparation
 
 > **Status:** Graduated B.Tech CSE-AIML, actively interviewing
 > **Referrals:** Oracle, Salesforce, Red Hat, Eightfold (intern), Qualcomm, Hitachi, Honeywell, American Express, GE Healthcare, Volvo
 
 ---
 
-## 📁 What's Inside
+## What's Inside
 
 | Folder | Contents | Priority |
 |:-------|:---------|:---------|
-| `dsa/` | 7 essential topics (Strings → Two Pointers) with 25+ practice problems | ⭐⭐⭐ |
-| `debugging/` | 10 mock client-complaint debug problems | ⭐⭐⭐ |
-| `sql/` | SQL crash course + 15 practice problems | ⭐⭐⭐ |
-| `python/` | Python scripting crash course + 10 problems | ⭐⭐⭐ |
-| `api/` | REST API fundamentals, status codes, debugging | ⭐⭐ |
-| `linux/` | Linux commands, containers, Git, open source | ⭐⭐ (Red Hat/Qualcomm) |
-| `projects/` | Deep understanding of all 4 resume projects | ⭐⭐⭐ |
-| `behavioral/` | STAR stories + HR questions + "Why [Company]?" | ⭐⭐⭐ |
-| `paper/` | IEEE paper defense (works for any company) | ⭐⭐⭐ |
-| `company-specific/` | Brief per company — what they test, how to prep | ⭐⭐ |
+| `dsa/` | 7 essential topics (Strings → Two Pointers) with 25+ practice problems | |
+| `debugging/` | 10 mock client-complaint debug problems | |
+| `sql/` | SQL crash course + 15 practice problems | |
+| `python/` | Python scripting crash course + 10 problems | |
+| `api/` | REST API fundamentals, status codes, debugging | |
+| `linux/` | Linux commands, containers, Git, open source | (Red Hat/Qualcomm) |
+| `projects/` | Deep understanding of all 4 resume projects | |
+| `behavioral/` | STAR stories + HR questions + "Why [Company]?" | |
+| `paper/` | IEEE paper defense (works for any company) | |
+| `company-specific/` | Brief per company — what they test, how to prep | |
 | `cheat-sheets/` | 30-min pre-interview review | Day-of |
 
 ---
 
-## 📅 3-Week Study Plan
+## 3-Week Study Plan
 
 ### Week 1: Foundation (Core Skills)
 
@@ -69,7 +69,7 @@
 
 ---
 
-## ⚡ Pre-Interview Ritual (Do This Before Every Interview)
+## Pre-Interview Ritual (Do This Before Every Interview)
 
 1. **1 hour before:** Review the company-specific brief
 2. **30 min before:** Review the cheat sheet

@@ -1,7 +1,7 @@
-# 📊 Deliverable 1: SQL Crash Course + 15 Practice Problems
+# Deliverable 1: SQL Crash Course + 15 Practice Problems
 
 > [!TIP]
-> Eightfold's PSE round tests **practical SQL** — extracting data, finding duplicates, debugging data syncs, aggregating metrics. NOT trick questions. If you can do JOINs, GROUP BY, Window Functions, and CTEs confidently, you'll crush it.
+> Enterprise interviews test **practical SQL** — extracting data, finding duplicates, debugging data syncs, aggregating metrics. NOT trick questions. If you can do JOINs, GROUP BY, Window Functions, and CTEs confidently, you'll crush it.
 
 ---
 
@@ -10,13 +10,13 @@
 ### 1. SELECT Basics
 ```sql
 -- Basic structure (order matters!)
-SELECT columns          -- 5. What to show
-FROM table              -- 1. Where to look
-WHERE condition         -- 2. Filter rows BEFORE grouping
-GROUP BY columns        -- 3. Group rows
-HAVING condition        -- 4. Filter groups AFTER grouping
-ORDER BY columns        -- 6. Sort results
-LIMIT n                 -- 7. Cap results
+SELECT columns     -- 5. What to show
+FROM table       -- 1. Where to look
+WHERE condition     -- 2. Filter rows BEFORE grouping
+GROUP BY columns    -- 3. Group rows
+HAVING condition    -- 4. Filter groups AFTER grouping
+ORDER BY columns    -- 6. Sort results
+LIMIT n         -- 7. Cap results
 ```
 
 ### 2. JOINs (Most Asked Topic)
@@ -55,7 +55,7 @@ FULL OUTER JOIN departments d ON e.dept_id = d.id;
 SELECT dept_id, COUNT(*) as employee_count, AVG(salary) as avg_salary
 FROM employees
 GROUP BY dept_id
-HAVING COUNT(*) > 5;    -- Filter AFTER grouping (WHERE filters BEFORE)
+HAVING COUNT(*) > 5;  -- Filter AFTER grouping (WHERE filters BEFORE)
 ```
 
 **Key Rule:** Every column in SELECT must either be in GROUP BY or inside an aggregate function.
@@ -64,21 +64,21 @@ HAVING COUNT(*) > 5;    -- Filter AFTER grouping (WHERE filters BEFORE)
 ```sql
 -- ROW_NUMBER: Unique sequential number per partition
 SELECT name, dept_id, salary,
-       ROW_NUMBER() OVER (PARTITION BY dept_id ORDER BY salary DESC) as rank
+    ROW_NUMBER() OVER (PARTITION BY dept_id ORDER BY salary DESC) as rank
 FROM employees;
 -- Use case: "Find the top earner in each department" → WHERE rank = 1
 
 -- RANK: Same rank for ties, skips next number
 -- DENSE_RANK: Same rank for ties, does NOT skip
 SELECT name, salary,
-       RANK() OVER (ORDER BY salary DESC) as rank,        -- 1, 2, 2, 4 (skips 3)
-       DENSE_RANK() OVER (ORDER BY salary DESC) as drank  -- 1, 2, 2, 3 (no skip)
+    RANK() OVER (ORDER BY salary DESC) as rank,    -- 1, 2, 2, 4 (skips 3)
+    DENSE_RANK() OVER (ORDER BY salary DESC) as drank -- 1, 2, 2, 3 (no skip)
 FROM employees;
 
 -- LAG / LEAD: Access previous/next row's value
 SELECT name, salary,
-       LAG(salary) OVER (ORDER BY hire_date) as prev_salary,
-       LEAD(salary) OVER (ORDER BY hire_date) as next_salary
+    LAG(salary) OVER (ORDER BY hire_date) as prev_salary,
+    LEAD(salary) OVER (ORDER BY hire_date) as next_salary
 FROM employees;
 -- Use case: "Compare each employee's salary with the previous hire"
 ```
@@ -87,14 +87,14 @@ FROM employees;
 ```sql
 -- Named temporary result set — makes complex queries readable
 WITH high_earners AS (
-    SELECT name, dept_id, salary
-    FROM employees
-    WHERE salary > 100000
+  SELECT name, dept_id, salary
+  FROM employees
+  WHERE salary > 100000
 ),
 dept_counts AS (
-    SELECT dept_id, COUNT(*) as cnt
-    FROM high_earners
-    GROUP BY dept_id
+  SELECT dept_id, COUNT(*) as cnt
+  FROM high_earners
+  GROUP BY dept_id
 )
 SELECT d.dept_name, dc.cnt
 FROM dept_counts dc
@@ -135,13 +135,13 @@ SELECT IFNULL(phone, 'N/A') FROM employees;
 ### 8. String Functions (Useful for Data Cleanup)
 ```sql
 SELECT 
-    UPPER(name),                    -- Uppercase
-    LOWER(email),                   -- Lowercase
-    CONCAT(first_name, ' ', last_name),  -- Concatenate
-    SUBSTRING(name, 1, 3),          -- Extract substring
-    TRIM(name),                     -- Remove whitespace
-    LENGTH(name),                   -- String length
-    REPLACE(phone, '-', '')         -- Replace characters
+  UPPER(name),          -- Uppercase
+  LOWER(email),          -- Lowercase
+  CONCAT(first_name, ' ', last_name), -- Concatenate
+  SUBSTRING(name, 1, 3),     -- Extract substring
+  TRIM(name),           -- Remove whitespace
+  LENGTH(name),          -- String length
+  REPLACE(phone, '-', '')     -- Replace characters
 FROM employees;
 ```
 
@@ -156,82 +156,82 @@ SELECT DATE_ADD(hire_date, INTERVAL 90 DAY) as probation_end FROM employees;
 
 -- Extract parts
 SELECT EXTRACT(YEAR FROM hire_date) as hire_year FROM employees;
-SELECT YEAR(hire_date), MONTH(hire_date) FROM employees;  -- MySQL shorthand
+SELECT YEAR(hire_date), MONTH(hire_date) FROM employees; -- MySQL shorthand
 ```
 
 ### 10. CASE Statements
 ```sql
 SELECT name, salary,
-    CASE
-        WHEN salary > 150000 THEN 'Senior'
-        WHEN salary > 100000 THEN 'Mid'
-        WHEN salary > 50000  THEN 'Junior'
-        ELSE 'Entry'
-    END as level
+  CASE
+    WHEN salary > 150000 THEN 'Senior'
+    WHEN salary > 100000 THEN 'Mid'
+    WHEN salary > 50000 THEN 'Junior'
+    ELSE 'Entry'
+  END as level
 FROM employees;
 ```
 
 ---
 
-## Part B: 15 Practice Problems (Eightfold-Themed)
+## Part B: 15 Practice Problems (Enterprise-Themed)
 
 > [!NOTE]
-> These problems use HR/talent data tables — exactly what Eightfold's platform deals with. Practice these and you'll be speaking the interviewer's language.
+> These problems use HR/talent data tables — exactly what enterprise platforms deal with. Practice these and you'll be speaking the interviewer's language.
 
 ### Schema (Used for all problems)
 
 ```sql
 -- Candidates who applied for jobs
 CREATE TABLE candidates (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100),
-    skills TEXT,           -- comma-separated: "Python,SQL,AWS"
-    years_experience INT,
-    applied_date DATE,
-    source VARCHAR(50)     -- 'LinkedIn', 'Referral', 'Career Page', 'Agency'
+  id INT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  skills TEXT,      -- comma-separated: "Python,SQL,AWS"
+  years_experience INT,
+  applied_date DATE,
+  source VARCHAR(50)   -- 'LinkedIn', 'Referral', 'Career Page', 'Agency'
 );
 
 -- Job postings
 CREATE TABLE jobs (
-    id INT PRIMARY KEY,
-    title VARCHAR(100),
-    department VARCHAR(50),
-    location VARCHAR(50),
-    required_experience INT,
-    status VARCHAR(20),    -- 'Open', 'Closed', 'On Hold'
-    created_date DATE
+  id INT PRIMARY KEY,
+  title VARCHAR(100),
+  department VARCHAR(50),
+  location VARCHAR(50),
+  required_experience INT,
+  status VARCHAR(20),  -- 'Open', 'Closed', 'On Hold'
+  created_date DATE
 );
 
 -- Applications linking candidates to jobs
 CREATE TABLE applications (
-    id INT PRIMARY KEY,
-    candidate_id INT,
-    job_id INT,
-    status VARCHAR(30),    -- 'Applied', 'Screening', 'Interview', 'Offer', 'Rejected', 'Hired'
-    applied_date DATE,
-    last_updated DATE,
-    rejection_reason VARCHAR(100)
+  id INT PRIMARY KEY,
+  candidate_id INT,
+  job_id INT,
+  status VARCHAR(30),  -- 'Applied', 'Screening', 'Interview', 'Offer', 'Rejected', 'Hired'
+  applied_date DATE,
+  last_updated DATE,
+  rejection_reason VARCHAR(100)
 );
 
 -- Interview records
 CREATE TABLE interviews (
-    id INT PRIMARY KEY,
-    application_id INT,
-    interviewer_name VARCHAR(100),
-    interview_date DATE,
-    score INT,             -- 1 to 5
-    feedback TEXT
+  id INT PRIMARY KEY,
+  application_id INT,
+  interviewer_name VARCHAR(100),
+  interview_date DATE,
+  score INT,       -- 1 to 5
+  feedback TEXT
 );
 
 -- Employees (hired candidates)
 CREATE TABLE employees (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    department VARCHAR(50),
-    hire_date DATE,
-    salary DECIMAL(10,2),
-    manager_id INT         -- self-referencing FK
+  id INT PRIMARY KEY,
+  name VARCHAR(100),
+  department VARCHAR(50),
+  hire_date DATE,
+  salary DECIMAL(10,2),
+  manager_id INT     -- self-referencing FK
 );
 ```
 
@@ -242,8 +242,8 @@ CREATE TABLE employees (
 
 ```sql
 SELECT c.name AS candidate_name, 
-       j.title AS job_title, 
-       a.status AS application_status
+    j.title AS job_title, 
+    a.status AS application_status
 FROM applications a
 INNER JOIN candidates c ON a.candidate_id = c.id
 INNER JOIN jobs j ON a.job_id = j.id;
@@ -282,9 +282,9 @@ ORDER BY application_count DESC;
 
 ```sql
 SELECT j.title,
-       COUNT(a.id) AS total_apps,
-       SUM(CASE WHEN a.status = 'Rejected' THEN 1 ELSE 0 END) AS rejected,
-       ROUND(100.0 * SUM(CASE WHEN a.status = 'Rejected' THEN 1 ELSE 0 END) / COUNT(a.id), 1) AS rejection_pct
+    COUNT(a.id) AS total_apps,
+    SUM(CASE WHEN a.status = 'Rejected' THEN 1 ELSE 0 END) AS rejected,
+    ROUND(100.0 * SUM(CASE WHEN a.status = 'Rejected' THEN 1 ELSE 0 END) / COUNT(a.id), 1) AS rejection_pct
 FROM jobs j
 JOIN applications a ON j.id = a.job_id
 GROUP BY j.id, j.title
@@ -298,9 +298,9 @@ HAVING SUM(CASE WHEN a.status = 'Rejected' THEN 1 ELSE 0 END) * 1.0 / COUNT(a.id
 
 ```sql
 SELECT j.title,
-       c.name,
-       AVG(i.score) AS avg_score,
-       RANK() OVER (PARTITION BY a.job_id ORDER BY AVG(i.score) DESC) AS rank
+    c.name,
+    AVG(i.score) AS avg_score,
+    RANK() OVER (PARTITION BY a.job_id ORDER BY AVG(i.score) DESC) AS rank
 FROM interviews i
 JOIN applications a ON i.application_id = a.id
 JOIN candidates c ON a.candidate_id = c.id
@@ -315,24 +315,24 @@ GROUP BY j.title, a.job_id, c.name;
 
 ```sql
 WITH funnel AS (
-    SELECT 
-        COUNT(*) AS total_applied,
-        SUM(CASE WHEN status IN ('Screening','Interview','Offer','Hired') THEN 1 ELSE 0 END) AS passed_screening,
-        SUM(CASE WHEN status IN ('Interview','Offer','Hired') THEN 1 ELSE 0 END) AS reached_interview,
-        SUM(CASE WHEN status IN ('Offer','Hired') THEN 1 ELSE 0 END) AS got_offer,
-        SUM(CASE WHEN status = 'Hired' THEN 1 ELSE 0 END) AS hired
-    FROM applications
+  SELECT 
+    COUNT(*) AS total_applied,
+    SUM(CASE WHEN status IN ('Screening','Interview','Offer','Hired') THEN 1 ELSE 0 END) AS passed_screening,
+    SUM(CASE WHEN status IN ('Interview','Offer','Hired') THEN 1 ELSE 0 END) AS reached_interview,
+    SUM(CASE WHEN status IN ('Offer','Hired') THEN 1 ELSE 0 END) AS got_offer,
+    SUM(CASE WHEN status = 'Hired' THEN 1 ELSE 0 END) AS hired
+  FROM applications
 )
 SELECT 
-    total_applied,
-    passed_screening,
-    ROUND(100.0 * passed_screening / total_applied, 1) AS screening_rate,
-    reached_interview,
-    ROUND(100.0 * reached_interview / total_applied, 1) AS interview_rate,
-    got_offer,
-    ROUND(100.0 * got_offer / total_applied, 1) AS offer_rate,
-    hired,
-    ROUND(100.0 * hired / total_applied, 1) AS hire_rate
+  total_applied,
+  passed_screening,
+  ROUND(100.0 * passed_screening / total_applied, 1) AS screening_rate,
+  reached_interview,
+  ROUND(100.0 * reached_interview / total_applied, 1) AS interview_rate,
+  got_offer,
+  ROUND(100.0 * got_offer / total_applied, 1) AS offer_rate,
+  hired,
+  ROUND(100.0 * hired / total_applied, 1) AS hire_rate
 FROM funnel;
 ```
 
@@ -345,9 +345,9 @@ FROM funnel;
 SELECT e.name, e.department, e.salary, dept_avg.avg_salary
 FROM employees e
 JOIN (
-    SELECT department, AVG(salary) AS avg_salary
-    FROM employees
-    GROUP BY department
+  SELECT department, AVG(salary) AS avg_salary
+  FROM employees
+  GROUP BY department
 ) dept_avg ON e.department = dept_avg.department
 WHERE e.salary > dept_avg.avg_salary;
 ```
@@ -371,11 +371,11 @@ LEFT JOIN employees m ON e.manager_id = m.id;
 
 ```sql
 SELECT 
-    DATE_FORMAT(a.last_updated, '%Y-%m') AS hire_month,
-    COUNT(*) AS hires
+  DATE_FORMAT(a.last_updated, '%Y-%m') AS hire_month,
+  COUNT(*) AS hires
 FROM applications a
 WHERE a.status = 'Hired'
-  AND a.last_updated >= DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR)
+ AND a.last_updated >= DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR)
 GROUP BY DATE_FORMAT(a.last_updated, '%Y-%m')
 ORDER BY hire_month;
 ```
@@ -395,7 +395,7 @@ HAVING COUNT(*) > 1;
 SELECT c.*
 FROM candidates c
 JOIN (
-    SELECT email FROM candidates GROUP BY email HAVING COUNT(*) > 1
+  SELECT email FROM candidates GROUP BY email HAVING COUNT(*) > 1
 ) dupes ON c.email = dupes.email
 ORDER BY c.email;
 ```
@@ -407,11 +407,11 @@ ORDER BY c.email;
 
 ```sql
 SELECT 
-    c.name,
-    j.title,
-    a.applied_date,
-    MIN(i.interview_date) AS first_interview_date,
-    DATEDIFF(MIN(i.interview_date), a.applied_date) AS days_to_interview
+  c.name,
+  j.title,
+  a.applied_date,
+  MIN(i.interview_date) AS first_interview_date,
+  DATEDIFF(MIN(i.interview_date), a.applied_date) AS days_to_interview
 FROM applications a
 JOIN candidates c ON a.candidate_id = c.id
 JOIN jobs j ON a.job_id = j.id
@@ -427,10 +427,10 @@ ORDER BY days_to_interview DESC;
 
 ```sql
 SELECT 
-    c.source,
-    COUNT(DISTINCT a.id) AS total_applications,
-    SUM(CASE WHEN a.status = 'Hired' THEN 1 ELSE 0 END) AS total_hires,
-    ROUND(100.0 * SUM(CASE WHEN a.status = 'Hired' THEN 1 ELSE 0 END) / COUNT(DISTINCT a.id), 1) AS hire_rate_pct
+  c.source,
+  COUNT(DISTINCT a.id) AS total_applications,
+  SUM(CASE WHEN a.status = 'Hired' THEN 1 ELSE 0 END) AS total_hires,
+  ROUND(100.0 * SUM(CASE WHEN a.status = 'Hired' THEN 1 ELSE 0 END) / COUNT(DISTINCT a.id), 1) AS hire_rate_pct
 FROM candidates c
 JOIN applications a ON c.id = a.candidate_id
 GROUP BY c.source
@@ -446,14 +446,14 @@ ORDER BY hire_rate_pct DESC;
 SELECT DISTINCT j.department
 FROM jobs j
 WHERE j.status = 'Open'
-  AND NOT EXISTS (
-      SELECT 1 
-      FROM applications a
-      JOIN jobs j2 ON a.job_id = j2.id
-      WHERE j2.department = j.department
-        AND a.status = 'Hired'
-        AND a.last_updated >= DATE_SUB(CURRENT_DATE, INTERVAL 3 MONTH)
-  );
+ AND NOT EXISTS (
+   SELECT 1 
+   FROM applications a
+   JOIN jobs j2 ON a.job_id = j2.id
+   WHERE j2.department = j.department
+    AND a.status = 'Hired'
+    AND a.last_updated >= DATE_SUB(CURRENT_DATE, INTERVAL 3 MONTH)
+ );
 ```
 
 ---
@@ -463,9 +463,9 @@ WHERE j.status = 'Open'
 
 ```sql
 SELECT 
-    hire_date,
-    COUNT(*) AS daily_hires,
-    SUM(COUNT(*)) OVER (ORDER BY hire_date) AS running_total
+  hire_date,
+  COUNT(*) AS daily_hires,
+  SUM(COUNT(*)) OVER (ORDER BY hire_date) AS running_total
 FROM employees
 GROUP BY hire_date
 ORDER BY hire_date;
@@ -478,29 +478,29 @@ ORDER BY hire_date;
 
 ```sql
 WITH dept_stats AS (
-    SELECT 
-        j.department,
-        COUNT(DISTINCT a.id) AS total_apps,
-        SUM(CASE WHEN a.status = 'Hired' THEN 1 ELSE 0 END) AS hires,
-        AVG(i.score) AS avg_interview_score,
-        AVG(
-            CASE WHEN a.status = 'Hired' 
-            THEN DATEDIFF(a.last_updated, a.applied_date) 
-            END
-        ) AS avg_days_to_hire
-    FROM jobs j
-    JOIN applications a ON j.id = a.job_id
-    LEFT JOIN interviews i ON i.application_id = a.id
-    GROUP BY j.department
+  SELECT 
+    j.department,
+    COUNT(DISTINCT a.id) AS total_apps,
+    SUM(CASE WHEN a.status = 'Hired' THEN 1 ELSE 0 END) AS hires,
+    AVG(i.score) AS avg_interview_score,
+    AVG(
+      CASE WHEN a.status = 'Hired' 
+      THEN DATEDIFF(a.last_updated, a.applied_date) 
+      END
+    ) AS avg_days_to_hire
+  FROM jobs j
+  JOIN applications a ON j.id = a.job_id
+  LEFT JOIN interviews i ON i.application_id = a.id
+  GROUP BY j.department
 )
 SELECT 
-    department,
-    total_apps,
-    hires,
-    ROUND(100.0 * hires / total_apps, 1) AS hire_rate_pct,
-    ROUND(avg_interview_score, 2) AS avg_score,
-    ROUND(avg_days_to_hire, 0) AS avg_days_to_hire,
-    RANK() OVER (ORDER BY 100.0 * hires / total_apps DESC) AS dept_rank
+  department,
+  total_apps,
+  hires,
+  ROUND(100.0 * hires / total_apps, 1) AS hire_rate_pct,
+  ROUND(avg_interview_score, 2) AS avg_score,
+  ROUND(avg_days_to_hire, 0) AS avg_days_to_hire,
+  RANK() OVER (ORDER BY 100.0 * hires / total_apps DESC) AS dept_rank
 FROM dept_stats
 ORDER BY dept_rank;
 ```

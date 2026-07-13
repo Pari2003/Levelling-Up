@@ -1,13 +1,13 @@
-# ⚡ Pre-Interview Cheat Sheet (Review 30 Min Before)
+# Pre-Interview Cheat Sheet (Review 30 Min Before)
 
 ---
 
-## 🗣️ "Tell Me About Yourself" (60 sec)
+## ️ "Tell Me About Yourself" (60 sec)
 > "I'm Maitraiyee. B.Tech CS (AI/ML), Jain University, 8.7 GPA. Published IEEE paper on fair ranking for skill-based job matching — Sentence-BERT + fairness post-processing to reduce hiring bias (40.7% disparity reduction). Built agentic RAG pipeline with 3-layer hallucination detection. 3 internships: Veranda (retrieval system), AICTE Microsoft Elevate (BI), Futurense (ML). Excited about [COMPANY] because [SPECIFIC REASON]."
 
 ---
 
-## 📊 Self-Ratings
+## Self-Ratings
 | Skill | Say | One-liner |
 |:------|:----|:---------|
 | Python | **4** | Built backends, ML pipelines, async systems, research code |
@@ -16,7 +16,7 @@
 
 ---
 
-## 🌟 STAR Stories (Pick 1 per question)
+## STAR Stories (Pick 1 per question)
 
 | Story | Use For | Punch Line |
 |:------|:--------|:-----------|
@@ -26,7 +26,7 @@
 
 ---
 
-## 🏗️ Project Pitches (30 sec each)
+## ️ Project Pitches (30 sec each)
 
 **RAG:** "Q&A on PDFs. 3-way hybrid retrieval (vector + keyword + graph). Self-correction: generates → verifies each claim with 3-layer hallucination detection → fixes."
 
@@ -38,14 +38,14 @@
 
 ---
 
-## 🔌 API Status Codes
+## API Status Codes
 ```
-200=OK  201=Created  400=Bad Request  401=Auth Failed
-403=Forbidden  404=Not Found  429=Rate Limited
-500=Server Error  503=Service Down
+200=OK 201=Created 400=Bad Request 401=Auth Failed
+403=Forbidden 404=Not Found 429=Rate Limited
+500=Server Error 503=Service Down
 ```
 
-## 📊 SQL Quick-Fire
+## SQL Quick-Fire
 ```sql
 SELECT dept, COUNT(*) FROM emp GROUP BY dept HAVING COUNT(*) > 5;
 ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC)
@@ -56,15 +56,15 @@ WITH cte AS (SELECT ...) SELECT * FROM cte WHERE ...;
 
 ---
 
-## ❓ Questions to Ask Them
+## Questions to Ask Them
 1. "What does a typical first 90 days look like?"
 2. "What's the team's biggest challenge right now?"
 3. "What does career growth look like for this role?"
 
 ---
 
-## ✅ Do / ❌ Don't
-✅ Say "I" not "we" | ❌ Never rate yourself 5
-✅ Use specific numbers | ❌ Never say "I don't know" — say "I'd figure it out by..."
-✅ Pause and think | ❌ Never ramble — answer then stop
-✅ Connect to the role | ❌ Never badmouth past experiences
+## Do / Don't
+ Say "I" not "we" | Never rate yourself 5
+ Use specific numbers | Never say "I don't know" — say "I'd figure it out by..."
+ Pause and think | Never ramble — answer then stop
+ Connect to the role | Never badmouth past experiences
